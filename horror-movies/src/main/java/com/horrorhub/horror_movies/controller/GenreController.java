@@ -11,7 +11,7 @@ public class GenreController {
 
     @PostMapping("/created")
     public String createdGenre (@RequestBody Genre genre) {
-        return genre.toString();
+        return null;
     }
 
     @GetMapping("/genres")

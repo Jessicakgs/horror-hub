@@ -1,17 +1,23 @@
 package com.horrorhub.horror_movies.controller;
 
 import com.horrorhub.horror_movies.model.Movie;
+import com.horrorhub.horror_movies.service.MovieService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/movie")
+@RestController
+@RequestMapping("/movies")
 public class MovieController {
 
+    @Autowired
+    private MovieService movieService;
+
     @PostMapping("/created")
-    public String createMovie(@RequestBody Movie movie) {
-        return null; //MovieService.createdMovie("Created");
+    public Movie createMovie(@RequestBody Movie movie) {
+        return movieService.createMovie(movie);
     }
 
     @GetMapping("/list")
